@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#141d3a</color>
+    <color name="colorPrimaryDark">#141d3a</color>
+    <color name="colorAccent">#80ffffff</color>
+    <color name="textColorPrimary">#ffffff</color>
+    <color name="colorSecondary">#80ffffff</color>
+
+    <color name="navigationBarColor">#d2d0cc</color>
+    <color name="Black">#141d3a</color>
+    <color name="Black_opacity">#A1070500</color>
+    <color name="trasnparent">#00000000</color>
+
+    //For application styles:
+    //color palette:
+    <color name="md_white_1000">#ffffff</color>
+    <color name="transparent_white">#80ffffff</color>
+    <color name="grey_light">#a99f96</color>
+    <color name="md_blue_900">#0D47A1</color>
+    <color name="yellow_dark">#f8c23d</color>
+    <color name="yellow_light">#fbcc53</color>
+    <color name="brown_light">#967850</color>
+    <color name="brown_dark">#725440</color>
+    <color name="brown_different">#ac944e</color>
+    <color name="green_light">#61e5b8</color>
+    <color name="green_super_light">#61edbd</color>
+
+
+
+
+    <color name="md_green_50">#E8F5E9</color>
+    <color name="md_green_100">#C8E6C9</color>
+    <color name="md_green_200">#A5D6A7</color>
+    <color name="md_green_300">#81C784</color>
+    <color name="md_green_400">#66BB6A</color>
+    <color name="md_green_500">#4CAF50</color>
+    <color name="md_green_600">#43A047</color>
+    <color name="md_green_700">#388E3C</color>
+    <color name="md_green_800">#2E7D32</color>
+    <color name="md_green_900">#1B5E20</color>
+    <color name="md_green_A100">#B9F6CA</color>
+    <color name="md_green_A200">#69F0AE</color>
+    <color name="md_green_A400">#00E676</color>
+    <color name="md_green_A700">#00C853</color>
+</resources>

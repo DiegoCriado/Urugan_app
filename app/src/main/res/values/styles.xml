@@ -1,0 +1,52 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+   <!-- TextInputLayout-login theme. -->
+    <style name="textInputLayoutLogin" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="boxStrokeColor">@color/transparent_white</item>
+        <item name="android:textColorHint">@color/Black</item>
+        <item name="endIconTint">@color/Black</item>
+    </style>
+
+    <!-- Buttons-login theme. -->
+    <style name="button_withe" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?attr/colorAccent</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="boxStrokeColor">@color/Black</item>
+        <item name="cornerRadius">10sp</item>
+        <item name="android:textColorHint">@color/transparent_white</item>
+    </style>
+
+    <style name="button_transparent" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/yellow_dark</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="boxStrokeColor">@color/Black</item>
+        <item name="cornerRadius">10sp</item>
+        <item name="android:textColorHint">@color/transparent_white</item>
+    </style>
+
+
+    <!-- EditText-login theme. -->
+    <style name="editText" parent="Theme.AppCompat">
+    </style>
+
+
+    <!-- BottomSheet-Registration theme. -->
+    <style name="BottomSheetTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="background">@color/trasnparent</item>
+    </style>
+
+
+</resources>
