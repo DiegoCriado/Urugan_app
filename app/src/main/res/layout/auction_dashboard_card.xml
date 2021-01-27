@@ -25,13 +25,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/ic_round_gavel_24"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:text="Ultimos remates!"
                     android:textStyle="bold"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/md_blue_900"
                     android:layout_marginTop="6dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="12dp" />
@@ -76,12 +69,13 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:tint="@color/md_blue_900"
-                        android:src="@drawable/ic_baseline_navigate_next_24">
+                        android:src="@drawable/ic_baseline_navigate_next_24"
+                        app:tint="@color/md_blue_900">
                     </ImageView>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
 

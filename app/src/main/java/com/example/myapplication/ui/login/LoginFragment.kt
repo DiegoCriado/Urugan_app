@@ -1,4 +1,4 @@
-package com.example.ui
+package com.example.myapplication.ui.login
 
 import android.app.KeyguardManager
 import android.content.Context
@@ -7,10 +7,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
+
 import android.os.Bundle
 import android.os.CancellationSignal
 import android.util.TypedValue
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,14 +18,13 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.getMainExecutor
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.BottomNavigationActivity
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_welcome.title_tx
-import java.util.concurrent.Executor
 
 class LoginFragment : Fragment() {
 
@@ -49,10 +48,6 @@ class LoginFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
        // getCancellationSignal()
     }
 
@@ -78,7 +73,6 @@ class LoginFragment : Fragment() {
                 .setNegativeButton("Cancel", getMainExecutor(context), DialogInterface.OnClickListener { dialogInterface, which ->
                     notifyUser("Autenticacion de huella digital cancelada")
                 }).build()
-
             biometricPrompt.authenticate(getCancellationSignal(), getMainExecutor(context), authenticationCallback)
         }
 

@@ -7,6 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppThemeActionBar" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_white_1000</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+    </style>
+
    <!-- TextInputLayout-login theme. -->
     <style name="textInputLayoutLogin" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="backgroundTint">?attr/colorSecondary</item>
@@ -25,7 +33,7 @@
         <item name="android:textColorHint">@color/transparent_white</item>
     </style>
 
-    <style name="button_transparent" parent="Widget.MaterialComponents.Button">
+    <style name="button_yellow" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/yellow_dark</item>
         <item name="android:textColor">@color/Black</item>
         <item name="boxStrokeColor">@color/Black</item>

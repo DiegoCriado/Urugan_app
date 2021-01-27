@@ -1,4 +1,4 @@
-package com.example.ui
+package com.example.myapplication.ui.login
 
 import android.os.Bundle
 import android.util.TypedValue
