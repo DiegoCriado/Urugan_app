@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.R
+import com.example.myapplication.databinding.BottomsheetFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottomsheet_fragment.*
 
 class BottomSheetFragment :BottomSheetDialogFragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private lateinit var binding: BottomsheetFragmentBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.bottomsheet_fragment, container, false)
     }
 
@@ -24,6 +23,7 @@ class BottomSheetFragment :BottomSheetDialogFragment() {
 
         add_payment_btn.setOnClickListener {
             Toast.makeText(context, "Metodo de pago agregado", Toast.LENGTH_LONG).show()
+            dismiss()
         }
     }
 

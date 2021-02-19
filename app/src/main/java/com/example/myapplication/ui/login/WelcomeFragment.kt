@@ -11,17 +11,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentWelcomeBinding
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class WelcomeFragment : Fragment() {
 
-    private lateinit var navigationController : NavController
+    private lateinit var binding : FragmentWelcomeBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var navigationController : NavController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -30,24 +29,25 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentWelcomeBinding.bind(view)
 
         setAppTitle()
 
         lifecycleScope.launch {
             delay(3000)
-            progressBar.visibility = View.GONE
-            title_tx.visibility = View.GONE
-            sub_title_tx.visibility = View.GONE
+            binding.progressBar.visibility = View.GONE
+            binding.titleTx.visibility = View.GONE
+            binding.subTitleTx.visibility = View.GONE
            findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
         }
 
     }
 
     fun setAppTitle(){
-        title_tx.typeface = ResourcesCompat.getFont(requireContext(),
+        binding.titleTx.typeface = ResourcesCompat.getFont(requireContext(),
             R.font.title_one
         )
-        title_tx.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40.toFloat())
+        binding.titleTx.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40.toFloat())
     }
 
 }

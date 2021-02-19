@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.registration
 
 import android.content.Intent
+import android.os.Binder
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -9,17 +10,20 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentRegistrationBinding
 import com.example.myapplication.ui.login.BottomSheetFragment
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_welcome.title_tx
 
-class RegistrationFragment : Fragment(){
+class RegistrationFragment : Fragment() {
+
+    private lateinit var binding: FragmentRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,  savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_registration, container, false)
     }
@@ -28,9 +32,11 @@ class RegistrationFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         setAppTitle()
 
+        binding = FragmentRegistrationBinding.bind(view)
+
         val bottomSheetFragment = BottomSheetFragment.newInstance()
 
-        choose_payment_method_btn.setOnClickListener {
+        binding.choosePaymentMethodBtn.setOnClickListener {
             bottomSheetFragment.show(parentFragmentManager, "")
         }
     }
@@ -47,9 +53,9 @@ class RegistrationFragment : Fragment(){
     }
 
 
-    fun setAppTitle(){
-        title_tx.typeface = ResourcesCompat.getFont(requireContext(),
-            R.font.title_one)
-        title_tx.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40.toFloat())
+    fun setAppTitle() {
+        binding.titleTx.typeface = ResourcesCompat.getFont(requireContext(),
+                R.font.title_one)
+        binding.titleTx.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40.toFloat())
     }
 }

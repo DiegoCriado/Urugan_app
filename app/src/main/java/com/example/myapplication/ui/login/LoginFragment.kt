@@ -10,6 +10,7 @@ import android.os.Build
 
 import android.os.Bundle
 import android.os.CancellationSignal
+import android.text.TextUtils
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -23,16 +24,23 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.BottomNavigationActivity
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_welcome.title_tx
+import java.math.BigInteger
+import java.security.MessageDigest
+import java.util.regex.Pattern
 
 class LoginFragment : Fragment() {
 
-    private var cancellationSignal :CancellationSignal? = null
-    private val authenticationCallback : BiometricPrompt.AuthenticationCallback
+    //initialization of viewBinding
+    lateinit var binding: FragmentLoginBinding
+
+    private var cancellationSignal: CancellationSignal? = null
+    private val authenticationCallback: BiometricPrompt.AuthenticationCallback
         get() =
             @RequiresApi(Build.VERSION_CODES.P)
-            object : BiometricPrompt.AuthenticationCallback(){
+            object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
                     super.onAuthenticationError(errorCode, errString)
                     notifyUser("Algo esta mal $errorCode")
@@ -45,12 +53,6 @@ class LoginFragment : Fragment() {
                 }
             }
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-       // getCancellationSignal()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
@@ -59,52 +61,70 @@ class LoginFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding = FragmentLoginBinding.bind(view)
+
         setAppTitle()
 
         //chequea si el device tiene soporte de biometric
         checkBiometricSupport()
 
         //biometric
-        fingerprint_ly.setOnClickListener {
-            val biometricPrompt  = BiometricPrompt.Builder(context)
-                .setTitle("Huella digital")
-                .setSubtitle("Ingrese su huella digital para ingresar sesion")
-                .setDescription("Coloque su dedo en el sensor")
-                .setNegativeButton("Cancel", getMainExecutor(context), DialogInterface.OnClickListener { dialogInterface, which ->
-                    notifyUser("Autenticacion de huella digital cancelada")
-                }).build()
+        binding.fingerprintLy.setOnClickListener {
+            val biometricPrompt = BiometricPrompt.Builder(context)
+                    .setTitle("Huella digital")
+                    .setSubtitle("Ingrese su huella digital para ingresar sesion")
+                    .setDescription("Coloque su dedo en el sensor")
+                    .setNegativeButton("Cancel", getMainExecutor(context), DialogInterface.OnClickListener { dialogInterface, which ->
+                        notifyUser("Autenticacion de huella digital cancelada")
+                    }).build()
             biometricPrompt.authenticate(getCancellationSignal(), getMainExecutor(context), authenticationCallback)
         }
 
-        forgot_username_ly.setOnClickListener {
+        binding.forgotUsernameLy.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_forgotUsernameFragment)
         }
 
-        forgot_password_ly.setOnClickListener {
+        binding.forgotPasswordLy.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
         }
 
-        //Login-logic
-        login_btn.setOnClickListener {
+        //Login-btn-logic
+        binding.loginBtn.setOnClickListener {
 
+            var user = username_login_tx.text.toString()
+            var password = password_login_tx.text.toString()
+
+            if (user.isNullOrEmpty()) {
+                Toast.makeText(context, "Ingrese usuario valido", Toast.LENGTH_SHORT).show()
+            } else if (!isValidPassword(password)) {
+                Toast.makeText(context, "Contrasenia invalida", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.usernameLoginTx.setText("")
+                binding.passwordLoginTx.setText("")
+                val intent = Intent(activity, BottomNavigationActivity::class.java)
+                startActivity(intent)
+            }
         }
 
-        register_btn.setOnClickListener {
+        binding.registerBtn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
         }
 
-        singIn_without_login.setOnClickListener {
+        binding.singInWithoutLogin.setOnClickListener {
             val intent = Intent(activity, BottomNavigationActivity::class.java)
             startActivity(intent)
         }
 
     }
 
-    private fun notifyUser(message : String){
+
+    //Biometric functions
+    private fun notifyUser(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun getCancellationSignal() : CancellationSignal{
+    private fun getCancellationSignal(): CancellationSignal {
         cancellationSignal = CancellationSignal()
         cancellationSignal!!.setOnCancelListener {
             notifyUser("EL usuario cancelo la auteticacion")
@@ -113,29 +133,39 @@ class LoginFragment : Fragment() {
     }
 
     private fun checkBiometricSupport(): Boolean {
-       val keyguardManager = requireContext().getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+        val keyguardManager = requireContext().getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 
-        if(!keyguardManager.isKeyguardLocked){
+        if (!keyguardManager.isKeyguardLocked) {
             notifyUser("Puede autenticarse con huella digital")
             return false
         }
 
-        if(ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED) {
             notifyUser("La autenticacion con huella dactilar no esta permitida")
-        return false
+            return false
         }
 
-        return if (requireContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)){
+        return if (requireContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
             true
-        }else true
+        } else true
     }
 
-    fun setAppTitle(){
+    private fun isValidPassword(s: String?): Boolean {
+        val PASSWORD_PATTERN: Pattern = Pattern.compile(
+                "[a-zA-Z0-9!@#$]{8,24}")
+        return !TextUtils.isEmpty(s) && PASSWORD_PATTERN.matcher(s!!).matches()
+    }
+
+    fun setAppTitle() {
         title_tx.typeface = ResourcesCompat.getFont(requireContext(),
-            R.font.title_one)
+                R.font.title_one)
         title_tx.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40.toFloat())
     }
 
+    fun String.sha256(): String {
+        val md = MessageDigest.getInstance("SHA-256")
+        return BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0')
+    }
 
 
 }

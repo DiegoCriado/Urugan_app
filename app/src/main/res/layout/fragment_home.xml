@@ -38,25 +38,14 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="5dp" />
 
-        <TextView
-            android:id="@+id/sub_title_next_remates_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="Del 9 al 21 de Noviembre"
-            android:textSize="14dp"
-            android:layout_gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/separator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="15dp"/>
-
-
-       <include
-           layout="@layout/auction_dashboard_card" />
-
+            tools:listitem="@layout/rv_upcoming_remates_row"
+            android:orientation="horizontal"/>
 
         <View
             android:id="@+id/separator2"
@@ -75,6 +64,7 @@
             android:textStyle="bold"
             android:text="Realize pre ofertas en los proximos remates"
             android:textSize="14dp"
+            android:textColor="@color/Black"
             app:layout_constraintTop_toBottomOf="@+id/separator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,9 +72,14 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="5dp"/>
 
-        <include
-            layout="@layout/pre_offer_auction_dashboar_card"/>
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            tools:listitem="@layout/pre_offer_remates_row"
+            android:orientation="horizontal"/>
 
         <View
             android:id="@+id/separator3"
@@ -110,6 +105,34 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="5dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                tools:listitem="@layout/rv_upcoming_remates_row"
+                android:orientation="horizontal"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_remates"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
 
 
     </LinearLayout>

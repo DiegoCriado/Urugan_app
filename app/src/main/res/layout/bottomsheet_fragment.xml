@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:background="@drawable/gradient_bottomsheet">
 
     <LinearLayout
         android:id="@+id/container_payment_method"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/md_green_100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

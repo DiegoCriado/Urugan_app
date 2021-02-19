@@ -70,7 +70,7 @@
 </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_txt"
+        android:id="@+id/email_ly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/textInputLayoutLogin"
@@ -87,7 +87,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_txt"
+        android:id="@+id/password_ly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconMode="password_toggle"
@@ -95,7 +95,7 @@
         android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_txt">
+        app:layout_constraintTop_toBottomOf="@id/email_ly">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -113,11 +113,11 @@
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_txt"
+        app:layout_constraintTop_toBottomOf="@id/password_ly"
         android:text="Agregar metodo de pago"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/create_account_btn"
+        android:id="@+id/recover_username_btn"
         style="@style/button_yellow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
