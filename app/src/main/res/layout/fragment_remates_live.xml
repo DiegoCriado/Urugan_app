@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_app_img"
+        android:orientation="vertical"
+        tools:context=".ui.live.RematesLiveFragment">
+
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:importantForAutofill="auto"
+            app:autoWidthFixing="true"
+            app:imageScaleType="fitCenter" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:drawableEnd="@drawable/ic_baseline_live_tv_24"
+                android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:pointerIcon="vertical_double_arrow"
+                android:text="Remates en vivo"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="15dp"
+            android:text="Recuerda que podras ver todos los remates por esta plataforma via streaming, sin costo y con una calidad full hd." />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:drawableEnd="@drawable/ic_baseline_attach_money_24"
+                android:drawablePadding="8dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:pointerIcon="vertical_double_arrow"
+                android:text="Pre ofertar"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="15dp"
+                android:text="Recuerda que podras realizar pre ofertas que te ayudaran a concretar tu venta de una forma mas rapida y eficiente." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:drawableEnd="@drawable/ic_baseline_gavel_24"
+            android:drawablePadding="8dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:pointerIcon="vertical_double_arrow"
+            android:text="Proximos remates"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="15dp"
+            android:text="Mira los proximos remates a realizarse, mantente actualizado y activa las notificaciones para que podamos avisarte con un tiempo oportuno ." />
+
+        </LinearLayout>
+
+
+</ScrollView>

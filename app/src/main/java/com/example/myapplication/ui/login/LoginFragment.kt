@@ -36,6 +36,8 @@ class LoginFragment : Fragment() {
     //initialization of viewBinding
     lateinit var binding: FragmentLoginBinding
 
+    lateinit var username : String
+
     private var cancellationSignal: CancellationSignal? = null
     private val authenticationCallback: BiometricPrompt.AuthenticationCallback
         get() =
@@ -61,9 +63,7 @@ class LoginFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding = FragmentLoginBinding.bind(view)
-
         setAppTitle()
 
         //chequea si el device tiene soporte de biometric
@@ -102,6 +102,8 @@ class LoginFragment : Fragment() {
             } else {
                 binding.usernameLoginTx.setText("")
                 binding.passwordLoginTx.setText("")
+
+               // findNavController().navigate(R.id.action_loginFragment_to_mobile_navigation2)
                 val intent = Intent(activity, BottomNavigationActivity::class.java)
                 startActivity(intent)
             }
@@ -112,8 +114,9 @@ class LoginFragment : Fragment() {
         }
 
         binding.singInWithoutLogin.setOnClickListener {
-            val intent = Intent(activity, BottomNavigationActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_loginFragment_to_mobile_navigation2)
+//            val intent = Intent(activity, BottomNavigationActivity::class.java)
+//            startActivity(intent)
         }
 
     }

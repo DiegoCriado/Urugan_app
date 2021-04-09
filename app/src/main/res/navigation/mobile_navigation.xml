@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_notifications"
             app:destination="@id/navigation_notifications" />
+        <action
+            android:id="@+id/action_navigation_home_to_rematesLiveFragment2"
+            app:destination="@id/navigation_remates_live" />
     </fragment>
 
     <fragment
@@ -29,4 +32,9 @@
         android:name="com.example.myapplication.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_remates_live"
+        android:name="com.example.myapplication.ui.live.RematesLiveFragment"
+        android:label="@string/title_remates_on_live"
+        tools:layout="@layout/fragment_remates_live" />
 </navigation>

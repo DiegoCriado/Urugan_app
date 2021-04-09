@@ -7,9 +7,10 @@
     <color name="colorSecondary">#80ffffff</color>
 
     <color name="navigationBarColor">#d2d0cc</color>
-    <color name="Black">#141d3a</color>
-    <color name="Black_opacity">#A1070500</color>
-    <color name="trasnparent">#00000000</color>
+    <color name="black_color_primary">#141d3a</color>
+    <color name="full_black">#000000</color>
+    <color name="black_opacity">#A1070500</color>
+    <color name="transparent">#00000000</color>
 
     //For application styles:
     //color palette:

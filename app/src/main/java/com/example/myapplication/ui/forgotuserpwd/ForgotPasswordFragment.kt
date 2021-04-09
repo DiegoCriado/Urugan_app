@@ -25,9 +25,8 @@ class ForgotPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setAppTitle()
-
         binding = FragmentForgotPasswordBinding.bind(view)
+        setAppTitle()
 
         binding.recoverUsernameBtn.setOnClickListener {
 

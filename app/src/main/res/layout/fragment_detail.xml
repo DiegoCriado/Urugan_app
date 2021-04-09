@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/md_white_1000"
+        android:fontFamily="sans-serif-condensed-light"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
@@ -187,6 +188,7 @@
         android:text="Overview"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed-light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />

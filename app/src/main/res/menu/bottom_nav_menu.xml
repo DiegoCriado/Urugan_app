@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_baseline_attach_money_24"
         android:title="@string/title_notifications" />
 
+    <item
+       android:id="@+id/navigation_remates_live"
+        android:icon="@drawable/ic_baseline_live_tv_24"
+        android:title="@string/vivo" />
+
 </menu>

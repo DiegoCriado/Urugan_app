@@ -6,4 +6,7 @@
     <string name="title_home">Inicio</string>
     <string name="title_dashboard">Remates</string>
     <string name="title_notifications">Pre-Ofertas</string>
+    <string name="title_remates_on_live">Remates en vivo</string>
+    <string name="ingresar_con_huella_digital">Ingresar con huella digital</string>
+    <string name="vivo">Vivo</string>
 </resources>

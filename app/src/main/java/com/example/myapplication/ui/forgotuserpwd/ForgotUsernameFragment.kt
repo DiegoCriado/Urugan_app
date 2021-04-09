@@ -25,9 +25,8 @@ class ForgotUsernameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setAppTitle()
-
         binding = FragmentForgotUsernameBinding.bind(view)
+        setAppTitle()
 
         binding.recoverUsernameBtn.setOnClickListener {
             var email = binding.emailNewUserTx.text.toString()
