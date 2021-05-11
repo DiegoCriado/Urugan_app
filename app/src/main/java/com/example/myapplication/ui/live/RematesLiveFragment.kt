@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentRematesLiveBinding
 import org.imaginativeworld.whynotimagecarousel.CarouselItem
@@ -35,10 +36,16 @@ class RematesLiveFragment : Fragment() {
         list.add( CarouselItem( imageUrl = "https://agroverdad.com.ar/wp-content/uploads/2020/08/braford-lossocavones-remate-650x404.jpg",
                 caption = "Estancia Los Montes - Durazno"))
 
-       // list.add(CarouselItem("https://www.defrentealcampo.com.ar/wp-content/uploads/2020/11/84.jpg", "Remate en Minas"))
-        //list.add(CarouselItem("https://www.defrentealcampo.com.ar/wp-content/uploads/2020/11/84.jpg", "Campo claro - Florida"))
-
        carousel.addData(list)
+
+
+        binding.nextRematesTv.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_remates_live_to_navigation_next_remates_fragment)
+        }
+
+        binding.preOfferTv.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_remates_live_to_pre_offer_fragment)
+        }
     }
 
 }

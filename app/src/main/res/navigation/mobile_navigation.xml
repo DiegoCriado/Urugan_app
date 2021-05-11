@@ -36,5 +36,12 @@
         android:id="@+id/navigation_remates_live"
         android:name="com.example.myapplication.ui.live.RematesLiveFragment"
         android:label="@string/title_remates_on_live"
-        tools:layout="@layout/fragment_remates_live" />
+        tools:layout="@layout/fragment_remates_live" >
+        <action
+            android:id="@+id/action_navigation_remates_live_to_navigation_next_remates_fragment"
+            app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_navigation_remates_live_to_pre_offer_fragment"
+            app:destination="@id/navigation_notifications" />
+    </fragment>
 </navigation>

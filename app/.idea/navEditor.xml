@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="230" />
-                            <option name="y" value="-81" />
+                            <option name="x" value="195" />
+                            <option name="y" value="-178" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -25,7 +25,7 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-89" />
+                            <option name="x" value="-110" />
                             <option name="y" value="131" />
                           </Point>
                         </option>
@@ -56,21 +56,35 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="176" />
-                            <option name="y" value="495" />
+                            <option name="x" value="202" />
+                            <option name="y" value="423" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="rematesLiveFragment2">
+                  <entry key="navigation_remates_live">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="498" />
-                            <option name="y" value="129" />
+                            <option name="x" value="492" />
+                            <option name="y" value="134" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_navigation_remates_live_to_navigation_next_remates_fragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_navigation_remates_live_to_pre_offer_fragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -90,8 +104,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="683" />
-                            <option name="y" value="-100" />
+                            <option name="x" value="729" />
+                            <option name="y" value="-105" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -162,7 +176,7 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="684" />
+                            <option name="x" value="731" />
                             <option name="y" value="275" />
                           </Point>
                         </option>
